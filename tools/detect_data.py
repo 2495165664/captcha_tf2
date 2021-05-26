@@ -1,5 +1,9 @@
 import os
 import cv2
+import numpy as np
+
+# 自写文件
+from settings_tf import config
 
 
 def get_data(imagepath):
@@ -11,12 +15,19 @@ def get_data(imagepath):
     paths = os.listdir(imagepath)
     print(paths)
     # 
-    images_data = np.ndarray(shape=((len(paths),) + IMAGE_SIZE), dtype='uint8')
-    for path in paths:
+    images_data = np.ndarray(shape=((len(paths),) + config.IMAGE_SIZE), dtype='uint8')
+    for i, path in enumerate(paths):
         path = os.path.join(imagepath, path)
+        # 读取图片
         image = cv2.imread(path)
-        print(image)
-        break
+        # 灰度处理
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        images_data[i, :, :, 0] = image
+            # print(image)
+            # break
+    print("test image:", images_data.shape)
+    return images_data
 
 
-get_data('../data/test_images')
+images = get_data('../data/test_images')
+# print(images.shape)
