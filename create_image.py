@@ -5,9 +5,9 @@ from PIL import Image
 from captcha.image import ImageCaptcha  # pip install captcha
 
 # 验证码保存路径
-SAVE_PATH = './data/images/'
+SAVE_PATH = './data/test_images/'
 # label txt 路径
-LABEL_TXT_PATH = './data/label.txt'
+LABEL_TXT_PATH = './data/test_label.txt'
 # 图片长度
 IMAGE_WIDTH = 120
 # 图片宽度
@@ -60,5 +60,5 @@ def create(num):
     f.close()
 
 if __name__ == '__main__':
-    create_num = 1000
+    create_num = 100
     create(create_num)

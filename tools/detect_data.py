@@ -18,7 +18,6 @@ def get_data(imagepath):
     # 
     images_data = np.ndarray(shape=((len(paths),) + config.IMAGE_SIZE), dtype='uint8')
     for i, path in enumerate(paths):
-        print(path)
         path = os.path.join(imagepath, path)
         # 读取图片
         image = cv2.imread(path)
@@ -31,5 +30,5 @@ def get_data(imagepath):
     return images_data
 
 
-images = get_data('../data/images')
+# images = get_data('../data/images')
 # print(images.shape)

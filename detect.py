@@ -17,7 +17,7 @@ def load_model():
 # 加载模型
 model = load_model()
 
-pred = model(images[0:3])
+pred = model(images)
 # for image in images:
 #     # 预测结果
 #     predict =model(image.reshape((1,) + image.shape))
@@ -28,13 +28,13 @@ pred = model(images[0:3])
 #         # print(value)
 #     print(pred_value)
 for i in pred:
+    pred_value = []
     for j in i:
         pred_ = tf.argmax(j, axis=0)
-        print(pred_)
+        pred_value.append(pred_.numpy())
+    print(pred_value)
     print("*"*50)
-    print(pred.shape)
-    print(i.shape)
 
 
-cv2.imshow("a", images[0])
-cv2.waitKey(0)
+# cv2.imshow("a", images[0])
+# cv2.waitKey(0)
