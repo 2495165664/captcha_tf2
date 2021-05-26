@@ -16,6 +16,9 @@ def get_images_path():
     :return: [...]
     """
     paths_name = os.listdir(config.IMAGE_PATH)
+    # 重新排序
+    paths_name.sort(key=lambda x: int(x[:-4]))
+
     return paths_name
 
 

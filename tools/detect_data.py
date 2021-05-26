@@ -13,14 +13,16 @@ def get_data(imagepath):
     :return:
     """
     paths = os.listdir(imagepath)
-    print(paths)
+    paths.sort(key=lambda x: int(x[:-4]))
+    # print(paths)
     # 
     images_data = np.ndarray(shape=((len(paths),) + config.IMAGE_SIZE), dtype='uint8')
     for i, path in enumerate(paths):
+        print(path)
         path = os.path.join(imagepath, path)
         # 读取图片
         image = cv2.imread(path)
-        # 灰度处理
+        # 灰度处理并归一化
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         images_data[i, :, :, 0] = image
             # print(image)
@@ -29,5 +31,5 @@ def get_data(imagepath):
     return images_data
 
 
-images = get_data('../data/test_images')
+images = get_data('../data/images')
 # print(images.shape)

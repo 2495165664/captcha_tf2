@@ -1,5 +1,5 @@
 import random
-
+import os
 import numpy as np
 from PIL import Image
 from captcha.image import ImageCaptcha  # pip install captcha
@@ -21,6 +21,11 @@ ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'
             'V', 'W', 'X', 'Y', 'Z']
 
 
+if os.path.exists(SAVE_PATH) == False:
+    os.mkdir(SAVE_PATH)
+
+if os.path.exists(LABEL_TXT_PATH) == False:
+    os.mkdir(LABEL_TXT_PATH)
 # 验证码一般都无视大小写；验证码长度4个字符
 def random_captcha_text(char_set=number, captcha_size=4):
     captcha_text = []
@@ -55,5 +60,5 @@ def create(num):
     f.close()
 
 if __name__ == '__main__':
-    create_num = 5000
+    create_num = 1000
     create(create_num)
