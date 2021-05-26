@@ -19,5 +19,5 @@ for i in pred:
     print(pred.shape)
     # print(i.shape)
 
-cv2.imshow("a", images[2])
+cv2.imshow("a", images[0])
 cv2.waitKey(0)
