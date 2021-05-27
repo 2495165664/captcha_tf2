@@ -7,9 +7,10 @@
 # 实例demo
 ## 训练过程
 > 目前训练val提升可以，loss下降稳定
-> ![](./data/used_images/train_1.png)
- * ![效果](./data/used_images/1.jpg) 
- * ![效果](./data/used_images/2.jpg) 
+>> ![](./data/used_images/train_1.png)
+> 图片
+>>  ![效果](./data/used_images/1.jpg) 
+>>  ![效果](./data/used_images/2.jpg) 
  
  
 # 目录
