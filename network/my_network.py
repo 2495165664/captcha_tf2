@@ -5,7 +5,9 @@ from tensorflow.keras.layers import Conv2D, Flatten, Dense, MaxPooling2D, Reshap
 class MyModel(Model):
     def __init__(self, output):
         super(MyModel, self).__init__()
+        # 归一化，防止梯度爆炸
         self.make = layers.experimental.preprocessing.Rescaling(1. / 255)
+        # 第一层卷积 1 > 32
         self.conv1 = Conv2D(32, 2, activation='relu')
         self.batch1 = BatchNormalization()
         self.maxpadding1 = MaxPooling2D((2, 2), padding='same')
@@ -30,6 +32,7 @@ class MyModel(Model):
         self.flatten = Flatten()
         self.d2 = Dense(100, activation="relu")
         self.d1 = Dense(40, activation='softmax')
+        self.soft_max = Softmax()
         self.out = Reshape(output)
 
     def call(self, x, training=None, mask=None):
@@ -37,7 +40,7 @@ class MyModel(Model):
         x = self.conv1(x)
         x = self.batch1(x)
         x = self.maxpadding1(x)
-        x = self.drop1(x)
+        # x = self.drop1(x)
 
         x = self.conv2(x)
         x = self.batch2(x)
@@ -59,6 +62,7 @@ class MyModel(Model):
         x = self.flatten(x)
         x = self.d2(x)
         x = self.d1(x)
+        x = self.soft_max(x)
         x = self.out(x)
 
         return x
