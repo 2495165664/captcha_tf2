@@ -5,9 +5,9 @@ from PIL import Image
 from captcha.image import ImageCaptcha  # pip install captcha
 
 # 验证码保存路径
-SAVE_PATH = './data/test_images/'
+SAVE_PATH = './data/images/'
 # label txt 路径
-LABEL_TXT_PATH = './data/test_label.txt'
+LABEL_TXT_PATH = './data/label.txt'
 # 图片长度
 IMAGE_WIDTH = 120
 # 图片宽度

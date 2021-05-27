@@ -53,6 +53,7 @@ def run():
 
 try:
     run()
+    print("result位置:", save_path)
     print("Sussessful!")
 except Exception as e:
     print("Error! 报错:", e)

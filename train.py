@@ -18,6 +18,8 @@ def run():
     model = my_network.MyModel(output=(4, 10))
     model.build(input_shape=(16, 60, 120, 1))
     # opti = optimizers.Adam(lr=0.00001)
+    model.summary()
+
     model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
 
     history = model.fit(train_images, train_labels, epochs=500, batch_size=16)
