@@ -14,11 +14,13 @@ def run():
 
     model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
 
-    history = model.fit(train_images, train_labels, epochs=2, batch_size=16)
+    history = model.fit(train_images, train_labels, epochs=100, batch_size=16)
     loss = history.history['loss']
     accuracy = history.history['accuracy']
-    print(accuracy)
-    print(loss)
+    with open('./result.txt', 'w')as f:
+        f.write(str(accuracy))
+        f.write('\n')
+        f.write(str(loss))
     # print(history)
     model.save('./model/exp1')
 
