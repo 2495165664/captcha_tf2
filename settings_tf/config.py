@@ -3,11 +3,11 @@
 
 
 # 数据集存放路径
-IMAGE_PATH = "./data/images/"
+IMAGE_PATH = "./data/test_images/"
 
 
 # label存放路径
-IMAGE_LAEBL_PATH = './data/label.txt'
+IMAGE_LAEBL_PATH = './data/test_label.txt'
 
 
 # 声明图片长宽和图层
