@@ -16,15 +16,15 @@ class MyModel(Model):
         self.maxpadding2 = MaxPooling2D((2, 2), padding='same')
 
 
-        self.conv3 = Conv2D(128, 2, activation='relu')
+        self.conv3 = Conv2D(128, 1, activation='relu')
         self.batch3 = BatchNormalization()
         self.maxpadding3 = MaxPooling2D((2, 2), padding='same')
 
-        self.conv4 = Conv2D(64, 1, activation='relu')
+        self.conv4 = Conv2D(64, 2, activation='relu')
         self.batch4 = BatchNormalization()
         self.maxpadding4 = MaxPooling2D((2, 2), padding='same')
 
-        self.conv5 = Conv2D(32, 1, activation='relu')
+        self.conv5 = Conv2D(32, 2, activation='relu')
         self.batch5 = BatchNormalization()
         self.maxpadding5 = MaxPooling2D((2, 2), padding='same')
 
@@ -67,25 +67,3 @@ class MyModel(Model):
 # model.build(input_shape=(16, 60, 120, 1))
 # model.summary()
 
-
-def mySequential(input_shape, output_shape):
-    model = Sequential([
-        layers.experimental.preprocessing.Rescaling(1. / 255, input_shape=input_shape),
-        layers.Conv2D(16, 3, padding='same', activation='relu'),
-        layers.MaxPooling2D(),
-        layers.Conv2D(32, 3, padding='same', activation='relu'),
-        layers.MaxPooling2D(),
-        layers.Conv2D(64, 3, padding='same', activation='relu'),
-        layers.MaxPooling2D(),
-        layers.Flatten(),
-        layers.Dense(128, activation='relu'),
-        layers.Dense(40),
-        Reshape(output_shape)
-    ])
-
-    return model
-
-
-# model = mySequential((60, 120, 1), (4, 10))
-#
-# model.summary()
