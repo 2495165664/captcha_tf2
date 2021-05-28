@@ -6,8 +6,7 @@ import tensorflow as tf
 
 from tools import progress_bar
 from settings_tf import config
-# one = tf.one_hot(5, depth=10)
-# print(one)
+
 
 
 def get_images_path():
@@ -78,6 +77,6 @@ def lable_to_num():
 def make():
     """
     [] []
-    :return:
+    :return:train_data, train_lebels
     """
     return imageData_to_num(), lable_to_num()

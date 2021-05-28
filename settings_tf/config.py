@@ -18,4 +18,4 @@ IMAGE_SIZE = (60, 120, 1)
 LAEBL_SIZE = (4, 10)
 
 # 训练集和测试集比例
-train_and_val = 0.3
+train_and_val = 0.2
