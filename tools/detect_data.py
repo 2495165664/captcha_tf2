@@ -26,6 +26,8 @@ def get_data(imagepath):
         image = cv2.imread(path)
         # 灰度处理并归一化
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # 固定大小
+        image = cv2.resize(image, (config.IMAGE_SIZE[1], config.IMAGE_SIZE[0]))
         images_data[i, :, :, 0] = image
             # print(image)
             # break
@@ -33,5 +35,7 @@ def get_data(imagepath):
     return images_data, images_name
 
 
-# images = get_data('../data/images')
-# print(images.shape)
+# images, a = get_data('../data/test_images')
+#
+# cv2.imshow('1', images[0])
+# cv2.waitKey(0)
