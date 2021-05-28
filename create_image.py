@@ -4,6 +4,15 @@ import numpy as np
 from PIL import Image
 from captcha.image import ImageCaptcha  # pip install captcha
 
+# 验证码中的字符, 就不用汉字了
+number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+            'v', 'w', 'x', 'y', 'z']
+ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+            'V', 'W', 'X', 'Y', 'Z']
+
+
+
 # 验证码保存路径
 SAVE_PATH = './data/images/'
 # label txt 路径
@@ -12,13 +21,12 @@ LABEL_TXT_PATH = './data/label.txt'
 IMAGE_WIDTH = 120
 # 图片宽度
 IMAGE_HEIGHT = 60
-
-# 验证码中的字符, 就不用汉字了
-number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-            'v', 'w', 'x', 'y', 'z']
-ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-            'V', 'W', 'X', 'Y', 'Z']
+# 生成数量
+create_num = 10000
+# 生成字符集
+setts = number
+# 字符集长度
+captcha_size = 4
 
 
 if os.path.exists(SAVE_PATH) == False:
@@ -28,7 +36,7 @@ if os.path.exists(SAVE_PATH) == False:
 #     os.mkdir(LABEL_TXT_PATH)
 
 # 验证码一般都无视大小写；验证码长度4个字符
-def random_captcha_text(char_set=number, captcha_size=4):
+def random_captcha_text(char_set=setts, captcha_size=captcha_size):
     captcha_text = []
     for i in range(captcha_size):
         c = random.choice(char_set)
@@ -61,5 +69,4 @@ def create(num):
     f.close()
 
 if __name__ == '__main__':
-    create_num = 10000
     create(create_num)
