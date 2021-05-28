@@ -60,7 +60,7 @@ def lable_to_num():
     """
     f = open(config.IMAGE_LAEBL_PATH, 'r')
     data = f.readlines()
-    labels_data = np.ndarray(shape=((len(data),) + config.LAEBL_SIZE), dtype='int')
+    labels_data = np.ndarray(shape=((len(data),) + config.LABEL_SIZE), dtype='int')
     long = len(labels_data)
     for o, i in enumerate(data):
         i = i.replace("\n", '')

@@ -4,16 +4,20 @@ from settings_tf import config
 
 train_images, train_labels = make_data.make()
 
+# 训练次数
+epochs = 100
+# 分批大小
+batch_size = 16
 
 def run():
-    model = my_network.MyModel(output=(4, 10))
-    model.build(input_shape=(16, 60, 120, 1))
+    model = my_network.MyModel(output=config.LABEL_SIZE)
+    model.build(input_shape=((batch_size,) + config.IMAGE_SIZE ))
     # opti = optimizers.Adam(lr=0.00001)
     model.summary()
 
     model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
 
-    history = model.fit(train_images, train_labels, epochs=100, batch_size=16, validation_split=config.train_and_val)
+    history = model.fit(train_images, train_labels, epochs=epochs, batch_size=batch_size, validation_split=config.train_and_val)
     loss = history.history['loss']
     accuracy = history.history['accuracy']
     with open('./result.txt', 'w')as f:

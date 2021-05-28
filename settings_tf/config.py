@@ -14,8 +14,8 @@ IMAGE_LAEBL_PATH = './data/test_label.txt'
 IMAGE_SIZE = (60, 120, 1)
 
 
-# 输出层， 例如4个数字[4, 10]
-LAEBL_SIZE = (4, 10)
+# 输出层， 例如4个数字[4, 10]， 5个小写字符加数字[5, 10+26]
+LABEL_SIZE = (4, 10)
 
 # 训练集和测试集比例
 train_and_val = 0.2
