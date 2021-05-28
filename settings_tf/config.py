@@ -16,3 +16,5 @@ IMAGE_SIZE = (60, 120, 1)
 
 # 输出层， 例如4个数字[4, 10]
 LAEBL_SIZE = (4, 10)
+
+train_and_val = 0.3
