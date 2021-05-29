@@ -1,7 +1,10 @@
 import make_data
 from network import my_network
 from settings_tf import config
+import os
 
+# 指定GPU训练
+os.environ['CUDA_VISIBLE_DEVICES']='2, 3, 4'
 train_images, train_labels = make_data.make()
 
 # 训练次数
