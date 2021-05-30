@@ -11,7 +11,9 @@
 * 数据集: 随机生成的10000张图片，按照8:2用于训练和验证<br>
 * 设备: Titan X
 在训练过程中第5次epoch即可达到 `80的accuracy`，`50以上的val_accuracy`。<br>
-经过30次epoch `accuracy达到93`, val_acc在`85`以上
+经过30次epoch `accuracy达到93`, val_acc在`85`以上<br>
+最高达到97 acc
+
 > 目前训练val提升可以，loss下降稳定<br>
 >> ![](./data/used_images/train_1.png)<br>
 > demo图片<br>
