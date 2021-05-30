@@ -18,8 +18,8 @@
 >> ![](./data/used_images/train_1.png)<br>
 > demo图片<br>
 >>  ![效果](./data/used_images/1.jpg)<br><br> 
->>  ![效果](./data/used_images/2.jpg) 
- 
+>>  ![效果](./data/used_images/2.jpg) <br>
+>> ![效果](./data/used_images/3.jpg) 
  
 # 目录
 ## 1. 项目结构
