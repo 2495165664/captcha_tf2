@@ -1,8 +1,10 @@
 import make_data
 from network import my_network
-from settings_tf import config
 import os
+from tensorflow.keras import losses
 
+
+from settings_tf import config
 # 指定GPU训练
 os.environ['CUDA_VISIBLE_DEVICES']='2, 3, 4'
 train_images, train_labels = make_data.make()
@@ -17,8 +19,8 @@ def run():
     model.build(input_shape=((batch_size,) + config.IMAGE_SIZE ))
     # opti = optimizers.Adam(lr=0.00001)
     model.summary()
-
-    model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
+    loss = losses.MeanAbsoluteError()
+    model.compile(optimizer='adam', loss=loss, metrics=['accuracy'])
 
     history = model.fit(train_images, train_labels, epochs=epochs, batch_size=batch_size, validation_split=config.train_and_val)
     loss = history.history['loss']

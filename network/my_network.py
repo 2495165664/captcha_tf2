@@ -29,8 +29,7 @@ class MyModel(Model):
         self.maxpadding5 = MaxPooling2D((2, 2), padding='same')
 
         self.flatten = Flatten()
-        self.d2 = Dense(100, activation="relu")
-        self.d1 = Dense(40, activation='softmax')
+        self.d1 = Dense(output[0] * output[1], activation='softmax')
         self.out = Reshape(output)
 
     def call(self, x, training=None, mask=None):
@@ -57,7 +56,6 @@ class MyModel(Model):
         x = self.maxpadding5(x)
 
         x = self.flatten(x)
-        x = self.d2(x)
         x = self.d1(x)
         x = self.out(x)
 
