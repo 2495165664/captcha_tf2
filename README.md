@@ -7,10 +7,11 @@
 # 实例demo
 ## 训练过程
 * 优化器选择: Adam
-* 损失函数: mse(均方差)<br>
+* 损失函数: MSLE(均方对数误差)<br>
 * 数据集: 随机生成的10000张图片，按照8:2用于训练和验证<br>
-在训练过程中第二次epoch即可达到 `80的accuracy`，`50以上的val_accuracy`。<br>
-经过100次epoch `accuracy达到93`, val_acc在`85`以上
+* 设备: Titan X
+在训练过程中第5次epoch即可达到 `80的accuracy`，`50以上的val_accuracy`。<br>
+经过30次epoch `accuracy达到93`, val_acc在`85`以上
 > 目前训练val提升可以，loss下降稳定<br>
 >> ![](./data/used_images/train_1.png)<br>
 > demo图片<br>
