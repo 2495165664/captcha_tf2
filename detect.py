@@ -4,12 +4,13 @@ from datetime import datetime
 import tensorflow as tf
 from tensorflow.keras import models
 
+from settings_tf import config
 from tools import detect_data
 
 # 测试图片路径
 image_path = './data/test_images'
 # 模型加载路径
-model_path = './model/exp1'
+model_path = './model/exp_num'
 # 结果存放路径 保存格式 path + date .txt
 save_path = 'data/detect/'
 # 加载图片和图片名
@@ -26,6 +27,21 @@ def load_model():
     model.summary()
     return model
 
+
+def num_to_char(number):
+    """
+    把类似int的字母转成int整形
+    :param char:
+    :return:
+    """
+    if number in  config.number:
+        return number
+    elif number in config.alphabet:
+        return config.alphabet[number-10]
+    else:
+        return config.ALPHABET[number-10]
+
+
 def run():
     # 加载模型
     model = load_model()
@@ -38,11 +54,12 @@ def run():
     f = open(path, 'w', encoding='utf-8')
 
     for index, i in enumerate(pred):
-        pred_value = []
+        pred_value = ''
         print(images_name[index])
         for j in i:
             pred_ = tf.argmax(j, axis=0)
-            pred_value.append(pred_.numpy())
+            pred_ = num_to_char(str(pred_.numpy()))
+            pred_value+=pred_
         f.write(str(pred_value) + '    ')
         f.write(images_name[index] + "\n")
 
