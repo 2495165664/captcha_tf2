@@ -65,7 +65,8 @@ def lable_to_num():
     for o, i in enumerate(data):
         i = i.replace("\n", '')
         for v, j in enumerate(i):
-            labels_data[o, v] = tf.one_hot(int(j), depth=10).numpy()
+            j = char_to_num(j)
+            labels_data[o, v] = tf.one_hot(int(j), depth=config.LABEL_SIZE[1]).numpy()
 
         progress_bar.run(o, long, ">>> label 加载")
     print()
@@ -73,6 +74,18 @@ def lable_to_num():
     f.close()
     return labels_data
 
+def char_to_num(char):
+    """
+    把类似i, m的字母转成int整形
+    :param char:
+    :return:
+    """
+    if char in  config.number:
+        return char
+    elif char in config.alphabet:
+        return config.alphabet.index(char) + 10
+    else:
+        return config.ALPHABET.index(char) + 36
 
 def make():
     """

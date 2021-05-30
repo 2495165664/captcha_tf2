@@ -4,13 +4,7 @@ import numpy as np
 from PIL import Image
 from captcha.image import ImageCaptcha  # pip install captcha
 
-# 验证码中的字符, 就不用汉字了
-number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-            'v', 'w', 'x', 'y', 'z']
-ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-            'V', 'W', 'X', 'Y', 'Z']
-
+from settings_tf import config
 
 
 # 验证码保存路径
@@ -22,9 +16,9 @@ IMAGE_WIDTH = 120
 # 图片宽度
 IMAGE_HEIGHT = 60
 # 生成数量
-create_num = 10000
+create_num = 100
 # 生成字符集
-setts = number
+setts = config.number + config.alphabet
 # 字符集长度
 captcha_size = 4
 
