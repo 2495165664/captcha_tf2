@@ -11,7 +11,7 @@ IMAGE_LAEBL_PATH = './data/label.txt'
 
 
 # 声明图片长宽和图层
-IMAGE_SIZE = (60, 120, 1)
+IMAGE_SIZE = (80, 120, 1)
 
 
 # 输出层， 例如4个数字[4, 10]， 5个小写字符加数字[5, 10+26]

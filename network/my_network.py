@@ -20,6 +20,10 @@ class MyModel(Model):
         self.batch3 = BatchNormalization()
         self.maxpadding3 = MaxPooling2D((2, 2), padding='same')
 
+        self.conv6 = Conv2D(256, 3, activation='relu')
+        self.batch6 = BatchNormalization()
+        self.maxpadding6 = MaxPooling2D((2, 2), padding='same')
+
         self.conv4 = Conv2D(64, 2, activation='relu')
         self.batch4 = BatchNormalization()
         self.maxpadding4 = MaxPooling2D((2, 2), padding='same')
@@ -46,6 +50,10 @@ class MyModel(Model):
         x = self.conv3(x)
         x = self.batch3(x)
         x = self.maxpadding3(x)
+
+        x = self.conv6(x)
+        x = self.batch6(x)
+        x = self.maxpadding6(x)
 
         x = self.conv4(x)
         x = self.batch4(x)

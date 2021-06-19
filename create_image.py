@@ -14,7 +14,7 @@ LABEL_TXT_PATH = './data/label.txt'
 # 图片长度
 IMAGE_WIDTH = 120
 # 图片宽度
-IMAGE_HEIGHT = 60
+IMAGE_HEIGHT = 80
 # 生成数量
 create_num = 100
 # 生成字符集
